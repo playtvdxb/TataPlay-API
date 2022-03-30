@@ -1,0 +1,16 @@
+Step 1.1:- Generate OTP with RMN:-
+
+
+Method Request:- GET
+Endpoint:- https://kong-tatasky.videoready.tv/rest-api/pub/api/v1/rmn/8434940067/otp
+
+Response:-
+
+{
+   "code":0,
+   "message":"OTP generated successfully.",
+   "data":{
+      
+   },
+   "localizedMessage":"OTP generated successfully."
+}

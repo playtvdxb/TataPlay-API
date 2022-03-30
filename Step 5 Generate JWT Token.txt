@@ -1,0 +1,39 @@
+Step 5 Generate JWT Token:-
+
+Method Request:- POST
+Endpoint:- https://kong-tatasky.videoready.tv/auth-service/v1/oauth/token-service/token
+
+BODY ---> raw ---> JSON
+
+{"action":"stream","epids":[{"epid": "Subscription","bid": "1000000046"},{"epid": "Subscription","bid": "1000001368"}]}
+
+(Note:- Here in epids append all the bid generated in Step 4 Authentication via OTP as "pkgId": "1000000323", means pkgId==bid and the format would be the same for every channel for all those we wish to generate the JWT token for)
+
+HEADERS:-
+
+KEY					Value
+
+Authorization       bearer SWXqzldJFpsQ6nvEq5WHEU1K2BXGINXG                    (Change your accessToken everytime you run Step 4 Authentication via OTP, accessToken is refreshed everytime and the syntax is:- "bearer "+accessToken)
+x-subscriber-id     1304899733
+x-app-key           eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImR2ci11aSIsImtleSI6IiJ9.XUQUYRo82fD_6yZ9ZEWcJkc0Os1IKbpzynLzSRtQJ-E
+x-subscriber-name   Bharat Gupta
+x-device-id         YVJNVFZWVlZ7S01UZmRZTWNNQ3lHe0RvS0VYS0NHSwA
+x-device-platform   MOBILE
+x-device-type       ANDROID
+
+
+
+
+
+Use JWT.io to demonstrate the contents of generated JWT Token
+
+Response:-
+
+{
+   "code":0,
+   "message":"OAuth Token Generated Successfully",
+   "data":{
+      "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvbnRyb2xfc2lnbmluZ19rZXlfcHJvZHVjdGlvbl8xNjMwMDA1NDQ4NDE5In0.eyJzdWIiOiIxMzA0ODk5NzMzIiwiaXNlIjp0cnVlLCJqdGkiOiJjMmYwYjVhMC00MjhjLTRiM2YtODQ1Yi1iZmFiMjhjMzNiNzAiLCJhaWQiOiJ0YXRhc2t5IiwiZXhwIjoxNjQ4NzMxNDMwLCJuYW1lIjoiQmhhcmF0IEd1cHRhIiwiaWF0IjoxNjQ4NjQ1MDMwLCJlbnQiOlt7ImVwaWQiOiJTdWJzY3JpcHRpb25fTW9iaWxlX1N0cmVhbWluZyIsImJpZCI6IjEwMDAwMDAwNDYifSx7ImVwaWQiOiJTdWJzY3JpcHRpb25fTW9iaWxlX1N0cmVhbWluZyIsImJpZCI6IjEwMDAwMDEzNjgifV0sImlzcyI6IlRUTiJ9.4mV55gCwQO5ffOsXv-QbbudqR_LCHu_2jHIJz020Ks0",
+      "expiresIn":1648730530
+   }
+}

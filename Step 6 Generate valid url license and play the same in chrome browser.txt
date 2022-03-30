@@ -1,0 +1,33 @@
+Step 6 Generate valid url license and play the same in chrome browser
+
+"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvbnRyb2xfc2lnbmluZ19rZXlfcHJvZHVjdGlvbl8xNjMwMDA1NDQ4NDE5In0.eyJzdWIiOiIxMzA0ODk5NzMzIiwiaXNlIjp0cnVlLCJqdGkiOiJjMmYwYjVhMC00MjhjLTRiM2YtODQ1Yi1iZmFiMjhjMzNiNzAiLCJhaWQiOiJ0YXRhc2t5IiwiZXhwIjoxNjQ4NzMxNDMwLCJuYW1lIjoiQmhhcmF0IEd1cHRhIiwiaWF0IjoxNjQ4NjQ1MDMwLCJlbnQiOlt7ImVwaWQiOiJTdWJzY3JpcHRpb25fTW9iaWxlX1N0cmVhbWluZyIsImJpZCI6IjEwMDAwMDAwNDYifSx7ImVwaWQiOiJTdWJzY3JpcHRpb25fTW9iaWxlX1N0cmVhbWluZyIsImJpZCI6IjEwMDAwMDEzNjgifV0sImlzcyI6IlRUTiJ9.4mV55gCwQO5ffOsXv-QbbudqR_LCHu_2jHIJz020Ks0"
+
+So this was the token generated in the last step
+
+In order to generate a valid url license 
+
+Goto Step 3 Give the Channel ID in that url and from the JSON generated use,
+
+"dashWidewinePlayUrl": "https://delta31tatasky.akamaized.net/out/i/57073.mpd" (Different for every channels), [Paste this in browser and give valid url license to play the content]
+
+Point to note:- 
+
+To generate license,
+
+For example,
+
+"dashWidewineLicenseUrl": "https://tatasky.live.ott.irdeto.com/Widevine/getlicense?CrmId=tatasky&AccountId=tatasky&ContentId=400000023",
+
+So to get the license we need to append &ls_session=token_generated
+
+So our final license is:-
+
+https://tatasky.live.ott.irdeto.com/Widevine/getlicense?CrmId=tatasky&AccountId=tatasky&ContentId=400000023&ls_session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNvbnRyb2xfc2lnbmluZ19rZXlfcHJvZHVjdGlvbl8xNjMwMDA1NDQ4NDE5In0.eyJzdWIiOiIxMzA0ODk5NzMzIiwiaXNlIjp0cnVlLCJqdGkiOiJjMmYwYjVhMC00MjhjLTRiM2YtODQ1Yi1iZmFiMjhjMzNiNzAiLCJhaWQiOiJ0YXRhc2t5IiwiZXhwIjoxNjQ4NzMxNDMwLCJuYW1lIjoiQmhhcmF0IEd1cHRhIiwiaWF0IjoxNjQ4NjQ1MDMwLCJlbnQiOlt7ImVwaWQiOiJTdWJzY3JpcHRpb25fTW9iaWxlX1N0cmVhbWluZyIsImJpZCI6IjEwMDAwMDAwNDYifSx7ImVwaWQiOiJTdWJzY3JpcHRpb25fTW9iaWxlX1N0cmVhbWluZyIsImJpZCI6IjEwMDAwMDEzNjgifV0sImlzcyI6IlRUTiJ9.4mV55gCwQO5ffOsXv-QbbudqR_LCHu_2jHIJz020Ks0
+
+How the DASH with DRM protocol works:
+
+Dash files or mpd files have segments which are a list of chunks and not the entire file since these are updated on the go while a live stream is on
+After every x seconds dash players fetch a new segment which in turn has new chunk links
+According to the DRM widewine policy, before fetching each chunk, the player has to verify if the right person gets the chunk and thus a license url is always needed to verify the same.
+
+Use this chrome extension to see the live Stream :- https://chrome.google.com/webstore/detail/native-mpeg-dash-%20-hls-pl/cjfbmleiaobegagekpmlhmaadepdeedn?hl=en

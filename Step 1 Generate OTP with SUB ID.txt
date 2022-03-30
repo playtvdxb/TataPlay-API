@@ -1,0 +1,16 @@
+Step 1:- Generate OTP with SUB ID:-
+
+
+Method Request:- GET
+Endpoint:- https://kong-tatasky.videoready.tv/rest-api/pub/api/v1/subscribers/1304899733/otp
+
+Response:-
+
+{
+   "code":0,
+   "message":"OTP generated successfully.",
+   "data":{
+      "rmn":"tERrFIZ8oZYFKJLgLX75iw==~"
+   },
+   "localizedMessage":"OTP generated successfully."
+}
